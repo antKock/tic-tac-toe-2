@@ -1,7 +1,7 @@
 // VARIABLES //
 
 
-let currentPlayer = player1 // to do: Randomise
+
 
 let gameStatus = "live" // Makes sure player can't trigger a move when game is over
 

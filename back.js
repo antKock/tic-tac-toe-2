@@ -26,6 +26,8 @@ const playerTie = {
     scoreCell: document.querySelector("#scoreTie")
 }
 
+let currentPlayer = player1 // to do: Randomise
+
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
 let move = ""
