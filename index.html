@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="app.css"> <!-- Load CSS file -->
-    <script src="./app.js" defer></script> <!-- Load JS file -->
+    <script src="./back.js" defer></script> <!-- Load Back JS file -->
+    <script src="./app.js" defer></script> <!-- Load Front JS file -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <title>Tic-Tac-Toe</title>
 </head>
@@ -18,8 +19,8 @@
     <div class="rows">
       <div id="header">
         <div id="signs"> <img class="miniSign" src="assets/cross.png">  <img class="miniSign" src="assets/circle.png"> </div>
-        <div id="turnText"></div> 
-        <div id="refresh"><img class="microSign" src="assets/refresh.png"></div> 
+        <div id="turnText"> <img class="microSign"  id="turnImg" src="assets/cross.png" style="margin-right: 0.5em;"> TURN</div> 
+        <div id="refresh"> <img class="microSign" src="assets/refresh.png"></div> 
       </div>
     </div>
 
@@ -38,19 +39,19 @@
       <table>
         <tbody>
           <tr>
-            <td id="cel00"></td>
-            <td id="cel01"></td>
-            <td id="cel02"></td>
+            <td id="cel00"><img class="bigSign" id="img00" src=""></td>
+            <td id="cel01"><img class="bigSign" id="img01" src=""></td>
+            <td id="cel02"><img class="bigSign" id="img02" src=""></td>
           </tr>
           <tr>
-            <td id="cel10"></td>
-            <td id="cel11"></td>
-            <td id="cel12"></td>
+            <td id="cel10"><img class="bigSign" id="img10" src=""></td>
+            <td id="cel11"><img class="bigSign" id="img11" src=""></td>
+            <td id="cel12"><img class="bigSign" id="img12" src=""></td>
           </tr>
           <tr>
-            <td id="cel20"></td>
-            <td id="cel21"></td>
-            <td id="cel22"></td>
+            <td id="cel20"><img class="bigSign" id="img20" src=""></td>
+            <td id="cel21"><img class="bigSign" id="img21" src=""></td>
+            <td id="cel22"><img class="bigSign" id="img22" src=""></td>
           </tr>
         </tbody>
       </table>

@@ -1,63 +1,24 @@
 // VARIABLES //
-const player1 = {
-    name: "you",
-    score: 0,
-    color: "#31c4be",
-    playedMoves: [],
-    scoreCell: document.querySelector("#score1"),
-    bigSign: `<img class="bigSign" src="assets/cross.png">`,
-    microSign: `<img class="microSign" src="assets/cross.png" style="margin-right: 0.5em;">`,
-    blackSign: `<img class="bigSign" src="assets/cross-black.png">`
-}
 
-const player2 = {
-    name: "CPU",
-    score: 0,
-    color: "#f2b237",
-    playedMoves: [],
-    scoreCell: document.querySelector("#score2"),
-    bigSign: `<img class="bigSign" src="assets/circle.png">`,
-    microSign: `<img class="microSign" src="assets/circle.png" style="margin-right: 0.5em;">`,
-    blackSign: `<img class="bigSign" src="assets/circle-black.png">`
-}
-
-const playerTie = {
-    name: "TIE",
-    color: "#31c4be",
-    score: 0,
-    scoreCell: document.querySelector("#scoreTie")
-}
 
 let currentPlayer = player1 // to do: Randomise
-let move = ""
-let moveX = ""
-let moveY = ""
-
-let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-const positionMarkers = ["00", "01", "02", "10", "11", "12", "20", "21", "22"];
-const winningSituations = [["00", "01", "02"], ["10", "11", "12"], ["20", "21", "22"], ["01", "11", "21"], ["02", "12", "22"], ["00", "11", "22"], ["02", "11", "20"]]
 
 let gameStatus = "live" // Makes sure player can't trigger a move when game is over
 
 // Get HTML elements
 const refresh = document.querySelector("#refresh");
 const turnText = document.querySelector("#turnText");
+const turnImg = document.querySelector("#turnImg");
 const overlay = document.querySelector("#overlay");
 const winner = document.querySelector("#winner");
 const next = document.querySelector("#next");
 const reset = document.querySelector("#reset");
 
-/* Attempt to simplify my constants generation 
-const htmlElements = [ refresh, turnText, overlay, winner, next, reset]
-htmlElements.forEach(i => {
-    const i = document.querySelector(`${i}`)
-});
-*/
 
 // FUNCTIONS //
 
 function newGame() { // Initialise the game & switch player
-    turnText.innerHTML = `${currentPlayer.microSign}    TURN`
+    turnImg.src = currentPlayer.sign
     board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     drawBoard()
     gameStatus = "live"
@@ -66,16 +27,17 @@ function newGame() { // Initialise the game & switch player
 
 function nextPlayer() { // Switch active player. To do: Real random, with Tie handled
     if (currentPlayer === player2) {
-        currentPlayer = player1;
-    } else {
-        currentPlayer = player2;
-        cpuMove()
-    }
+        currentPlayer = player1
+    } else {currentPlayer = player2}
+
+    turnImg.src = currentPlayer.sign
+
+    if (currentPlayer === player2) {cpuMove()}
 }
 
 function drawBoard() { // Add sign to selected cell.
     positionMarkers.forEach(i => {
-        document.getElementById(`cel${i}`).innerHTML = `${board[i[0]][i[1]]}`;
+        document.getElementById(`img${i}`).src = `${board[i[0]][i[1]]}`;
         document.getElementById(`cel${i}`).style.backgroundColor = "#1f3540"
     });
 }
@@ -128,7 +90,7 @@ function isMoveAllowed(X, Y) { // Check if cell is still available
 }
 
 function applyMove(X, Y) {     // Apply user's move in the board
-    board[X][Y] = currentPlayer.bigSign // Convert position into sign img code
+    board[X][Y] = currentPlayer.sign // Convert position into sign img code
     currentPlayer.playedMoves.push(move)
     drawBoard()
 }
@@ -151,7 +113,7 @@ function isVictory() { // Check if currentPlayer won, by comparing Winning Situa
 function paintWinningCells(i) {
     i.forEach(y => {
         document.getElementById(`cel${y}`).style.backgroundColor = currentPlayer.color;
-        document.getElementById(`cel${y}`).innerHTML = currentPlayer.blackSign;
+        document.getElementById(`img${y}`).src = currentPlayer.blackSign;
     })
 }
 
@@ -251,4 +213,6 @@ positionMarkers.forEach(i => { // Listen to mouseover ending on each cell to tri
 });
 
 // INITIATE FIRST GAME AFTER PAGE LOADED
-newGame()
+
+
+// newGame()
