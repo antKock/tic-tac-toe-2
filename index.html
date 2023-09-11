@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css"> <!-- Load CSS file -->
+    <script src="./app.js" defer></script> <!-- Load JS file -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+    <title>Tic-Tac-Toe</title>
+</head>
+
+<body>
+  <!-- Using "flexbox" for layout -->
+  <div class="columns">
+    <!-- Top Elements - 1st row of the column -->
+    <div class="rows">
+      <div id="header">
+        <div id="signs"> <img class="miniSign" src="assets/cross.png">  <img class="miniSign" src="assets/circle.png"> </div>
+        <div id="turnText"></div> 
+        <div id="refresh"><img class="microSign" src="assets/refresh.png"></div> 
+      </div>
+    </div>
+
+    <!-- Board + Overlay - 2nd row of the column -->
+    <div>
+      <div id="overlay"> 
+        <div class="columns">
+          <div id="winner">WINNER</div>
+          <div class="rows" id="overlayButtons">
+            <div class="overlayButton" id="reset">RESET</div>
+            <div class="overlayButton" id="next">NEXT</div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <tbody>
+          <tr>
+            <td id="cel00"></td>
+            <td id="cel01"></td>
+            <td id="cel02"></td>
+          </tr>
+          <tr>
+            <td id="cel10"></td>
+            <td id="cel11"></td>
+            <td id="cel12"></td>
+          </tr>
+          <tr>
+            <td id="cel20"></td>
+            <td id="cel21"></td>
+            <td id="cel22"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Players' score - 3rd row of the column -->
+    <div class="rows" id="scores">
+      <div>
+        <div class="recap" id="recap1" class="columns">
+          <div class="playerTag">YOU</div>
+          <div class="playerScore" id="score1">0</div>
+        </div>
+        <div class="recap" id="recapTie" class="columns">
+          <div class="playerTag">TIES</div>
+          <div class="playerScore" id="scoreTie">0</div>
+        </div>
+        <div class="recap" id="recap2" class="columns">
+          <div class="playerTag">CPU</div>
+          <div class="playerScore" id="score2">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+/* Load local font */
+@font-face {
+    font-family: fallingskycond;
+    src: url(assets/FallingSkyCond.otf);
+  }
+
+@font-face {
+    font-family: fallingskybd;
+    src: url(assets/FallingSkyBd.otf);
+  }
+
+/* Global layout and UI */
+body {
+    background-color: #192a32;
+    font-family: 'fallingskycond';
+    cursor: default;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+.columns {
+    flex-direction: column;
+}
+
+.rows {
+    flex-direction: row;
+}
+
+/* Table Header elements */
+
+#header {
+    /* Shape */
+    width: 20em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    /* Alignement */
+    justify-content: space-between;
+    align-items: center;
+}
+
+#signs {
+    /* Positionning */
+    margin-left: 1em;
+}
+
+#turnText {
+    /* Shape */
+    height: 2em;
+    width: 6em;
+    border-radius: 0.5em;
+
+    /* Color & Shadow */
+    background-color: #1f3540;
+    color: #adc3ce;
+    box-shadow: 0px 5px 0px #102129;
+    
+    /* Alignement */
+    align-items: center;
+
+    /* Font */
+    font-family: fallingskybd;
+    font-size: 1.5em;
+}
+
+#refresh {
+    /* Shape */
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 0.2em;
+
+    /* Color & Shadow */
+    background-color: #a8bec9;
+    color: #adc3ce;
+    box-shadow: 0px 3px 0px #728894;
+
+    /* Others */
+    font-size: 2em;
+    align-items: center;
+    margin-right: 0.5em;
+    cursor: pointer;
+}
+
+/* Overlay */
+#overlay {
+    /* Positioning */
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    top: 5.4em;
+
+    /* Shape */
+    height: 19.5em; /* Full height (cover the whole page) */
+    width: 19.5em;
+    border-radius: 1em;
+
+    /* Color */
+    background-color: rgba(16,33,41,0.8); /* Black background with opacity */
+  }
+
+    #winner {
+        /* Font */
+        font-family: fallingskybd;
+        text-align: center;
+        font-size: 3em;
+
+        /* Positioning */
+        padding-bottom: 0.5em;
+    }
+
+    #overlayButtons {
+        width: 10em;
+        justify-content: space-between;
+    }
+
+    .overlayButton {
+        /* Shape */
+        height: 2em;
+        width: 4em;
+        border-radius: 0.5em;
+
+        /* Others */
+        align-items: center;
+        cursor: pointer;
+    }
+
+        #reset {
+            background-color: #a8bec9;
+        }
+
+        #next {
+            background-color: white;
+        }
+
+/* Table Body elements */
+table {
+    border-spacing: 1em;
+  }
+
+td {
+    /* Shape */
+    width: 5em;
+    height: 5em;
+    border-radius: 0.5em;
+
+    /* Alignement */
+    text-align: center;
+    align-items: center;
+
+    /* Colors & Shadow */
+    background-color: #1f3540;
+    box-shadow: 0px 5px 0px #102129;
+}
+
+/* Table Footer element */
+#scores {
+    padding-top: 1em;
+}
+
+.recap {
+    position: relative; /* Here, I switch to "relative" position because I need the Player Tag and Score to overlap vertically */
+    border-radius: 0.5em;
+    height: 3.5em;
+    width: 5em;
+}
+
+#recap1 {
+    background-color: #31c4be;
+}
+
+#recapTie {
+    background-color: #adc3ce;
+
+    /* Create space around (should be done through Flex, but I'm in absolute position */
+    margin-right:1em;
+    margin-left:1em;
+}
+
+#recap2 {
+    background-color: #f2b237;
+}
+
+.playerTag {
+    /* Position & alignement */
+    position: absolute;
+    top: 15%;
+    align-self: center;
+
+    /* Font & Color */
+    font-size: 0.8em;
+    color: #1f3540;
+}
+
+.playerScore {
+    /* Position & alignement */
+    position: absolute;
+    top: 35%;
+
+    /* Font & Color */
+    font-family: fallingskybd;
+    font-size:1.5em;
+    color: #192a32;
+}
+
+
+
+/* Handle various Sign sizes */
+
+.microSign {
+    width: 0.8em;
+}
+.miniSign {
+    width: 1.5em;
+}
+
+.bigSign {
+    width: 3em;
+    padding-top: 0.25em; /* Added because it wasn't naturally centered */
+}
