@@ -16,7 +16,7 @@ const player2 = {
     playedMoves: [],
     scoreCell: document.querySelector("#score2"),
     sign: `assets/circle.png`,
-    blackSign: `<img class="bigSign" src="assets/circle-black.png">`
+    blackSign: `assets/circle-black.png`
 }
 
 const playerTie = {
