@@ -50,6 +50,20 @@ function mouseout(i) { // When available cell is no longer hovered
 
 
 // FUNCTIONS MODIFYING HTML //
+function newGame() { // Initialise the game & switch player
+    turnImg.src = currentPlayer.sign
+    board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+    drawBoard()
+    gameStatus = "live"
+    overlay.style.display = "none"
+}
+
+function drawBoard() { // Add sign to selected cell.
+    positionMarkers.forEach(i => {
+        document.getElementById(`img${i}`).src = `${board[i[0]][i[1]]}`;
+        document.getElementById(`cel${i}`).style.backgroundColor = "#1f3540"
+    });
+}
 
 function paintWinningCells(i) {
     i.forEach(y => {

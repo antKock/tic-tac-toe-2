@@ -40,15 +40,6 @@ const positionMarkers = ["00", "01", "02", "10", "11", "12", "20", "21", "22"];
 const winningSituations = [["00", "01", "02"], ["10", "11", "12"], ["20", "21", "22"], ["00", "10", "20"], ["01", "11", "21"], ["02", "12", "22"], ["00", "11", "22"], ["02", "11", "20"]]
 
 // FUNCTIONS //
-
-function newGame() { // Initialise the game & switch player
-    turnImg.src = currentPlayer.sign
-    board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
-    drawBoard()
-    gameStatus = "live"
-    overlay.style.display = "none"
-}
-
 function nextPlayer() { // Switch active player. To do: Real random, with Tie handled
     if (currentPlayer === player2) {
         currentPlayer = player1
@@ -59,12 +50,7 @@ function nextPlayer() { // Switch active player. To do: Real random, with Tie ha
     if (currentPlayer === player2) {cpuMove()}
 }
 
-function drawBoard() { // Add sign to selected cell.
-    positionMarkers.forEach(i => {
-        document.getElementById(`img${i}`).src = `${board[i[0]][i[1]]}`;
-        document.getElementById(`cel${i}`).style.backgroundColor = "#1f3540"
-    });
-}
+
 
 function cpuMove() {
     // Get a filtered list of available Cells

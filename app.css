@@ -220,3 +220,10 @@ td {
     width: 3em;
     padding-top: 0.25em; /* Added because it wasn't naturally centered */
 }
+
+/* Fix Safari bug with white box on imgs */
+@supports (font: -apple-system-body) and (-webkit-appearance: none) { 
+    .bigSign {
+      clip-path: inset(4.7px 0.7px 0.7px 0.7px)
+    }
+}
